@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -42,7 +43,6 @@ body, input, textarea, button, p {
 } 
 
 h1, h2, h3, h4, h5, h6, strong {
-    font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
 
