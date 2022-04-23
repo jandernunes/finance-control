@@ -55,4 +55,42 @@ button {
     cursor: not-allowed;
 }
 
+.react-modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.react-modal-content {
+    width: 100%;
+    max-width: 576px; //Se tela for grande terá no máximo 576. Se for menor vai ocupar 100%
+    background: var(--background);
+    padding: 3rem;
+    position: relative; //Para configurar botão fechar com relação ao modal
+    border-radius: 0.24rem;
+}
+
+.react-modal-close {
+    position: absolute; //Posição fica em relação ao pai
+    right: 1.5rem;
+    top: 1.5rem;
+    border: 0;
+    background: transparent;
+
+    transition: filter 0.2s;
+
+    &:hover {
+        filter: brightness(0.8);
+    }
+
+}
+
 `
