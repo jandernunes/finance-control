@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-import { api } from "./services/api";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { api } from "../services/api";
 
 
 interface Transaction {
@@ -25,9 +25,9 @@ interface TransactionsContextData {
     createTransaction: (transaction: TransactionInput) => Promise<void>;
 }
 
-export const TransactionsContext = createContext<TransactionsContextData>({} as TransactionsContextData);
+const TransactionsContext = createContext<TransactionsContextData>({} as TransactionsContextData);
 
-
+//O Provider delimita quem terá acesso ao context. Somente os componentes que estiverem dentro da tag do provider
 export function TransactionsProvider({ children }:TransactionsProviderProps) {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
     
@@ -61,4 +61,11 @@ export function TransactionsProvider({ children }:TransactionsProviderProps) {
         </TransactionsContext.Provider>
     )
     
+}
+
+//Criação de próprio hook para evitar várias importações nos componentes
+export function useTransactions() {
+    const context = useContext(TransactionsContext);
+
+    return context;
 }
